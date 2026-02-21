@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MJC Child Development Club</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy: #1B365D;
+            --navy-light: #2A4F7F;
+            --gold: #F0C940;
+            --gold-light: #FFF8E1;
+            --gray-50: #F8FAFC;
+            --gray-100: #F1F5F9;
+            --gray-200: #E2E8F0;
+            --gray-500: #64748B;
+            --gray-700: #334155;
+            --gray-900: #0F172A;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--gray-700);
+            line-height: 1.6;
+            background: #ffffff;
+        }
+
+        /* ===== NAVIGATION ===== */
+        nav {
+            background: var(--navy);
+            padding: 0 24px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+        }
+
+        .nav-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 60px;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: white;
+        }
+
+        .nav-brand img {
+            height: 40px;
+            width: auto;
+        }
+
+        .nav-brand span {
+            font-weight: 700;
+            font-size: 16px;
+            color: white;
+        }
+
+        .nav-brand .brand-highlight {
+            color: var(--gold);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 8px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: rgba(255,255,255,0.85);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            padding: 8px 14px;
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255,255,255,0.1);
+            color: white;
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 50%, var(--navy) 100%);
+            color: white;
+            text-align: center;
+            padding: 60px 24px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(240,201,64,0.08), transparent 60%);
+            border-radius: 50%;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -80px;
+            left: -80px;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255,255,255,0.04), transparent 60%);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .hero-mascots {
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+
+        .hero-mascots img {
+            height: 120px;
+            width: auto;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 12px;
+        }
+
+        .hero h1 .gold {
+            color: var(--gold);
+        }
+
+        .hero .tagline {
+            font-size: 18px;
+            opacity: 0.9;
+            font-weight: 300;
+            margin-bottom: 28px;
+        }
+
+        .hero-cta {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--navy);
+            font-weight: 700;
+            font-size: 16px;
+            padding: 12px 32px;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .hero-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(240,201,64,0.4);
+        }
+
+        /* ===== SECTIONS ===== */
+        section {
+            padding: 60px 24px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-header h2 {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--navy);
+            margin-bottom: 8px;
+        }
+
+        .section-header p {
+            font-size: 16px;
+            color: var(--gray-500);
+            max-width: 550px;
+            margin: 0 auto;
+        }
+
+        .section-header .accent-line {
+            width: 60px;
+            height: 4px;
+            background: var(--gold);
+            border-radius: 2px;
+            margin: 12px auto 0;
+        }
+
+        /* ===== ABOUT ===== */
+        #about {
+            background: var(--gray-50);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .about-card {
+            background: white;
+            border-radius: 14px;
+            padding: 28px 24px;
+            text-align: center;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            border-top: 4px solid var(--navy);
+            transition: transform 0.2s;
+        }
+
+        .about-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .about-card:nth-child(2) {
+            border-top-color: var(--gold);
+        }
+
+        .about-card .card-icon {
+            font-size: 36px;
+            margin-bottom: 14px;
+        }
+
+        .about-card h3 {
+            font-size: 18px;
+            color: var(--navy);
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .about-card p {
+            font-size: 14px;
+            color: var(--gray-500);
+            line-height: 1.6;
+        }
+
+        /* ===== MEETINGS ===== */
+        #meetings {
+            background: white;
+        }
+
+        .meeting-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .meeting-info {
+            background: linear-gradient(135deg, var(--navy), var(--navy-light));
+            border-radius: 16px;
+            padding: 36px;
+            color: white;
+        }
+
+        .meeting-info h3 {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .meeting-row {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 16px;
+            font-size: 16px;
+        }
+
+        .meeting-row .m-icon {
+            font-size: 22px;
+            width: 28px;
+            text-align: center;
+        }
+
+        .meeting-row strong {
+            color: var(--gold);
+            min-width: 80px;
+        }
+
+        .dates-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .date-item {
+            background: var(--gray-50);
+            border-radius: 10px;
+            padding: 14px 18px;
+            text-align: center;
+            border: 1.5px solid var(--gray-200);
+            transition: border-color 0.2s;
+        }
+
+        .date-item:hover {
+            border-color: var(--gold);
+        }
+
+        .date-item.upcoming {
+            background: var(--gold-light);
+            border-color: var(--gold);
+        }
+
+        .date-item .date-month {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--gray-500);
+            font-weight: 600;
+        }
+
+        .date-item .date-day {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--navy);
+            line-height: 1.2;
+        }
+
+        .date-item .date-weekday {
+            font-size: 12px;
+            color: var(--gray-500);
+        }
+
+        .date-item.upcoming .date-month {
+            color: #8B6914;
+        }
+
+        .date-item.upcoming .date-day {
+            color: #8B6914;
+        }
+
+        /* ===== NEWS / ACTIVITIES ===== */
+        #news {
+            background: var(--gray-50);
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .news-card {
+            background: white;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            transition: transform 0.2s;
+        }
+
+        .news-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .news-card-banner {
+            height: 10px;
+        }
+
+        .news-card:nth-child(1) .news-card-banner { background: var(--navy); }
+        .news-card:nth-child(2) .news-card-banner { background: var(--gold); }
+        .news-card:nth-child(3) .news-card-banner { background: #4CAF50; }
+        .news-card:nth-child(4) .news-card-banner { background: #9C27B0; }
+
+        .news-card-body {
+            padding: 22px 24px;
+        }
+
+        .news-card .news-date {
+            font-size: 12px;
+            color: var(--gray-500);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+
+        .news-card h3 {
+            font-size: 17px;
+            color: var(--navy);
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .news-card p {
+            font-size: 13.5px;
+            color: var(--gray-500);
+            line-height: 1.6;
+        }
+
+        .news-tag {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 3px 10px;
+            border-radius: 12px;
+            margin-top: 10px;
+        }
+
+        .tag-event {
+            background: #E8F5E9;
+            color: #2E7D32;
+        }
+
+        .tag-meeting {
+            background: #E3F2FD;
+            color: #1565C0;
+        }
+
+        .tag-announcement {
+            background: #FFF3E0;
+            color: #E65100;
+        }
+
+        /* ===== GALLERY ===== */
+        #gallery {
+            background: white;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .gallery-item {
+            background: var(--gray-100);
+            border-radius: 12px;
+            aspect-ratio: 4/3;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 2px dashed var(--gray-200);
+            color: var(--gray-500);
+            font-size: 13px;
+            text-align: center;
+            padding: 16px;
+            transition: border-color 0.2s;
+        }
+
+        .gallery-item:hover {
+            border-color: var(--gold);
+        }
+
+        .gallery-item .gallery-icon {
+            font-size: 32px;
+            margin-bottom: 8px;
+            opacity: 0.5;
+        }
+
+        .gallery-item p {
+            font-size: 12px;
+            color: var(--gray-500);
+        }
+
+        /* ===== JOIN CTA ===== */
+        .join-cta {
+            background: linear-gradient(135deg, var(--navy), var(--navy-light));
+            color: white;
+            text-align: center;
+            padding: 60px 24px;
+        }
+
+        .join-cta h2 {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .join-cta h2 .gold {
+            color: var(--gold);
+        }
+
+        .join-cta p {
+            font-size: 16px;
+            opacity: 0.9;
+            margin-bottom: 24px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .join-cta .cta-button {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--navy);
+            font-weight: 700;
+            font-size: 16px;
+            padding: 14px 36px;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .join-cta .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(240,201,64,0.4);
+        }
+
+        .join-details {
+            margin-top: 20px;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--gray-900);
+            color: rgba(255,255,255,0.7);
+            padding: 32px 24px;
+        }
+
+        .footer-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .footer-brand img {
+            height: 50px;
+            width: auto;
+        }
+
+        .footer-brand-text {
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .footer-brand-text strong {
+            color: var(--gold);
+            font-size: 14px;
+        }
+
+        .footer-right {
+            text-align: right;
+            font-size: 12px;
+            line-height: 1.6;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .mobile-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                right: 0;
+                background: var(--navy);
+                flex-direction: column;
+                padding: 12px 24px 20px;
+                gap: 4px;
+                border-top: 1px solid rgba(255,255,255,0.1);
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-links a {
+                padding: 10px 14px;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .hero .tagline {
+                font-size: 15px;
+            }
+
+            .hero-mascots img {
+                height: 80px;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .meeting-content {
+                grid-template-columns: 1fr;
+            }
+
+            .dates-list {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-inner {
+                flex-direction: column;
+                text-align: center;
+                gap: 16px;
+            }
+
+            .footer-right {
+                text-align: center;
+            }
+
+            .section-header h2 {
+                font-size: 26px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .dates-list {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero-mascots img {
+                height: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-inner">
+            <a href="#" class="nav-brand">
+                <img src="../assets/images/MalePirateMJCFinal.png" alt="MJC Pirate">
+                <span><span class="brand-highlight">MJC</span> Child Dev Club</span>
+            </a>
+            <button class="mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle menu">&#9776;</button>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#meetings">Meetings</a></li>
+                <li><a href="#news">News</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-mascots">
+                <img src="../assets/images/MalePirateMJCFinal.png" alt="MJC Pirate Mascot">
+                <img src="../assets/images/FemalePirateMJC.png" alt="MJC Pirate Mascot">
+            </div>
+            <h1>MJC <span class="gold">Child Development</span> Club</h1>
+            <p class="tagline">Building the future of early childhood education &mdash; together.</p>
+            <a href="#meetings" class="hero-cta">Join Us This Friday!</a>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>What We're All About</h2>
+                <p>A community of ECE &amp; Child Development students making a difference</p>
+                <div class="accent-line"></div>
+            </div>
+            <div class="about-grid">
+                <div class="about-card">
+                    <div class="card-icon">💬</div>
+                    <h3>Discuss &amp; Learn</h3>
+                    <p>Dive into hot topics in child development, share classroom experiences, and learn from each other in a supportive environment.</p>
+                </div>
+                <div class="about-card">
+                    <div class="card-icon">🤝</div>
+                    <h3>Network &amp; Connect</h3>
+                    <p>Build relationships with fellow students, future colleagues, and professionals in early childhood education.</p>
+                </div>
+                <div class="about-card">
+                    <div class="card-icon">🌟</div>
+                    <h3>Grow &amp; Develop</h3>
+                    <p>Attend guest speaker events, participate in community activities, and build skills that will set you apart in your career.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Meetings -->
+    <section id="meetings">
+        <div class="container">
+            <div class="section-header">
+                <h2>When &amp; Where We Meet</h2>
+                <p>Grab your lunch and come hang out with us!</p>
+                <div class="accent-line"></div>
+            </div>
+            <div class="meeting-content">
+                <div class="meeting-info">
+                    <h3>Meeting Details</h3>
+                    <div class="meeting-row">
+                        <span class="m-icon">📅</span>
+                        <strong>When:</strong>
+                        <span>1st &amp; 3rd Fridays</span>
+                    </div>
+                    <div class="meeting-row">
+                        <span class="m-icon">🕛</span>
+                        <strong>Time:</strong>
+                        <span>12:00 PM</span>
+                    </div>
+                    <div class="meeting-row">
+                        <span class="m-icon">📍</span>
+                        <strong>Where:</strong>
+                        <span>John Muir Hall 160</span>
+                    </div>
+                    <div class="meeting-row">
+                        <span class="m-icon">🏫</span>
+                        <strong>Campus:</strong>
+                        <span>MJC West Campus</span>
+                    </div>
+                </div>
+                <div>
+                    <h3 style="font-size: 18px; color: var(--navy); font-weight: 700; margin-bottom: 16px; text-align: center;">Spring 2026 Dates</h3>
+                    <div class="dates-list">
+                        <div class="date-item">
+                            <div class="date-month">February</div>
+                            <div class="date-day">6</div>
+                            <div class="date-weekday">Friday</div>
+                        </div>
+                        <div class="date-item">
+                            <div class="date-month">February</div>
+                            <div class="date-day">20</div>
+                            <div class="date-weekday">Friday</div>
+                        </div>
+                        <div class="date-item upcoming">
+                            <div class="date-month">March</div>
+                            <div class="date-day">6</div>
+                            <div class="date-weekday">Friday</div>
+                        </div>
+                        <div class="date-item upcoming">
+                            <div class="date-month">March</div>
+                            <div class="date-day">20</div>
+                            <div class="date-weekday">Friday</div>
+                        </div>
+                        <div class="date-item">
+                            <div class="date-month">April</div>
+                            <div class="date-day">3</div>
+                            <div class="date-weekday">Friday</div>
+                        </div>
+                        <div class="date-item">
+                            <div class="date-month">April</div>
+                            <div class="date-day">17</div>
+                            <div class="date-weekday">Friday</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News / Recent Activities -->
+    <section id="news">
+        <div class="container">
+            <div class="section-header">
+                <h2>News &amp; Activities</h2>
+                <p>What we've been up to lately</p>
+                <div class="accent-line"></div>
+            </div>
+            <div class="news-grid">
+                <div class="news-card">
+                    <div class="news-card-banner"></div>
+                    <div class="news-card-body">
+                        <div class="news-date">March 13, 2026</div>
+                        <h3>Multicultural Day</h3>
+                        <p>We'll be at MJC's Multicultural Day celebration! Come visit our table and learn about diversity in early childhood education.</p>
+                        <span class="news-tag tag-event">Upcoming Event</span>
+                    </div>
+                </div>
+                <div class="news-card">
+                    <div class="news-card-banner"></div>
+                    <div class="news-card-body">
+                        <div class="news-date">Spring 2026</div>
+                        <h3>New Semester, Fresh Start!</h3>
+                        <p>We're kicking off Spring 2026 with new meeting topics, guest speakers on the calendar, and plans for community events. It's going to be a great semester!</p>
+                        <span class="news-tag tag-announcement">Announcement</span>
+                    </div>
+                </div>
+                <div class="news-card">
+                    <div class="news-card-banner"></div>
+                    <div class="news-card-body">
+                        <div class="news-date">Ongoing</div>
+                        <h3>ECE &amp; CD Program Info</h3>
+                        <p>Thinking about becoming an ECE or Child Development major? We can help you understand the paths available to you right here at MJC.</p>
+                        <span class="news-tag tag-meeting">Resource</span>
+                    </div>
+                </div>
+                <div class="news-card">
+                    <div class="news-card-banner"></div>
+                    <div class="news-card-body">
+                        <div class="news-date">Every Meeting</div>
+                        <h3>Open Discussion &amp; Networking</h3>
+                        <p>Every meeting includes open discussion time where members can share experiences, ask questions, and connect with peers in the field.</p>
+                        <span class="news-tag tag-meeting">Regular</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery">
+        <div class="container">
+            <div class="section-header">
+                <h2>Photo Gallery</h2>
+                <p>Snapshots from our meetings and events</p>
+                <div class="accent-line"></div>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <div class="gallery-icon">📸</div>
+                    <p>Club meeting photos<br>coming soon!</p>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-icon">📸</div>
+                    <p>Event photos<br>coming soon!</p>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-icon">📸</div>
+                    <p>Activity photos<br>coming soon!</p>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-icon">📸</div>
+                    <p>Guest speaker photos<br>coming soon!</p>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-icon">📸</div>
+                    <p>Community event photos<br>coming soon!</p>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-icon">📸</div>
+                    <p>More memories<br>coming soon!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join CTA -->
+    <section class="join-cta">
+        <h2>Ready to <span class="gold">Join Us</span>?</h2>
+        <p>No applications, no fees &mdash; just show up to our next meeting! Everyone is welcome, no matter your major.</p>
+        <a href="#meetings" class="cta-button">See Meeting Times</a>
+        <div class="join-details">
+            1st &amp; 3rd Fridays at 12 PM &bull; John Muir Hall 160 &bull; West Campus
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <img src="../assets/images/combined footer.png" alt="MJC Pirate Mascots">
+                <div class="footer-brand-text">
+                    <strong>MJC Child Development Club</strong><br>
+                    Modesto Junior College<br>
+                    Office of Student Services &bull; Associated Students
+                </div>
+            </div>
+            <div class="footer-right">
+                John Muir Hall 160<br>
+                West Campus, MJC<br>
+                &copy; 2026 MJC Child Development Club
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

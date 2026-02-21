@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multicultural Day 2026 | MJC Child Development Club</title>
+    <style>
+        @page {
+            size: letter;
+            margin: 0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            width: 8.5in;
+            height: 11in;
+            margin: 0 auto;
+            background: #ffffff;
+            color: #2D2D2D;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Decorative background shapes - more vibrant for event */
+        .bg-shape {
+            position: absolute;
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .bg-shape-1 {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(240, 201, 64, 0.12), transparent 70%);
+            top: -80px;
+            left: -100px;
+        }
+
+        .bg-shape-2 {
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, rgba(76, 175, 80, 0.08), transparent 70%);
+            top: 200px;
+            right: -80px;
+        }
+
+        .bg-shape-3 {
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(156, 39, 176, 0.07), transparent 70%);
+            bottom: 250px;
+            left: -60px;
+        }
+
+        .bg-shape-4 {
+            width: 180px;
+            height: 180px;
+            background: radial-gradient(circle, rgba(33, 150, 243, 0.08), transparent 70%);
+            bottom: 100px;
+            right: -50px;
+        }
+
+        /* Header - colorful banner */
+        .header {
+            background: linear-gradient(135deg, #1B365D 0%, #2A4F7F 40%, #1B365D 100%);
+            color: white;
+            text-align: center;
+            padding: 32px 40px 28px;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #E53935, #F0C940, #4CAF50, #2196F3, #9C27B0, #E53935);
+        }
+
+        .header .event-label {
+            display: inline-block;
+            background: linear-gradient(135deg, #F0C940, #E0B830);
+            color: #1B365D;
+            font-size: 12px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            padding: 4px 18px;
+            border-radius: 20px;
+            margin-bottom: 12px;
+        }
+
+        .header h1 {
+            font-size: 38px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            line-height: 1.1;
+            margin-bottom: 6px;
+        }
+
+        .header h1 .multi {
+            background: linear-gradient(90deg, #FF7043, #F0C940, #66BB6A, #42A5F5, #AB47BC);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header .subtitle {
+            font-size: 15px;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        /* Big date display */
+        .date-banner {
+            background: linear-gradient(135deg, #FFF8E1, #FFF3CD);
+            border-top: 3px solid #F0C940;
+            border-bottom: 3px solid #F0C940;
+            text-align: center;
+            padding: 20px 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .date-banner .date-main {
+            font-size: 42px;
+            font-weight: 900;
+            color: #1B365D;
+            letter-spacing: 1px;
+        }
+
+        .date-banner .date-details {
+            font-size: 16px;
+            color: #666;
+            margin-top: 2px;
+        }
+
+        /* Content */
+        .content {
+            padding: 28px 50px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Come find us section */
+        .find-us {
+            text-align: center;
+            margin-bottom: 28px;
+        }
+
+        .find-us h2 {
+            font-size: 24px;
+            color: #1B365D;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .find-us p {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.6;
+            max-width: 480px;
+            margin: 0 auto;
+        }
+
+        /* Mascot row */
+        .mascot-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 28px;
+        }
+
+        .mascot-row img {
+            height: 130px;
+            width: auto;
+        }
+
+        .mascot-message {
+            background: #F8FAFC;
+            border-radius: 16px;
+            padding: 20px 24px;
+            border: 2px solid #E2E8F0;
+            max-width: 320px;
+            position: relative;
+        }
+
+        .mascot-message::before {
+            content: '';
+            position: absolute;
+            left: -12px;
+            top: 50%;
+            transform: translateY(-50%);
+            border: 6px solid transparent;
+            border-right-color: #E2E8F0;
+        }
+
+        .mascot-message::after {
+            content: '';
+            position: absolute;
+            left: -9px;
+            top: 50%;
+            transform: translateY(-50%);
+            border: 6px solid transparent;
+            border-right-color: #F8FAFC;
+        }
+
+        .mascot-message h3 {
+            font-size: 15px;
+            color: #1B365D;
+            margin-bottom: 6px;
+            font-weight: 700;
+        }
+
+        .mascot-message p {
+            font-size: 12.5px;
+            color: #666;
+            line-height: 1.55;
+        }
+
+        /* Diversity section */
+        .diversity-section {
+            background: linear-gradient(135deg, #1B365D, #2A4F7F);
+            border-radius: 16px;
+            padding: 24px 30px;
+            color: white;
+            margin-bottom: 24px;
+        }
+
+        .diversity-section h3 {
+            font-size: 18px;
+            color: #F0C940;
+            margin-bottom: 10px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .diversity-section p {
+            font-size: 13px;
+            line-height: 1.65;
+            text-align: center;
+            opacity: 0.95;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .diversity-colors {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 14px;
+        }
+
+        .diversity-colors span {
+            width: 30px;
+            height: 6px;
+            border-radius: 3px;
+        }
+
+        .dc-1 { background: #E53935; }
+        .dc-2 { background: #F0C940; }
+        .dc-3 { background: #4CAF50; }
+        .dc-4 { background: #2196F3; }
+        .dc-5 { background: #9C27B0; }
+        .dc-6 { background: #FF7043; }
+
+        /* Club info bar */
+        .club-bar {
+            text-align: center;
+            background: #F8FAFC;
+            border-radius: 12px;
+            padding: 16px 24px;
+            border: 1.5px solid #E2E8F0;
+        }
+
+        .club-bar p {
+            font-size: 13px;
+            color: #555;
+            line-height: 1.5;
+        }
+
+        .club-bar strong {
+            color: #1B365D;
+        }
+
+        /* Footer */
+        .footer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 1;
+        }
+
+        .footer-rainbow {
+            height: 5px;
+            background: linear-gradient(90deg, #E53935, #F0C940, #4CAF50, #2196F3, #9C27B0, #E53935);
+        }
+
+        .footer-bar {
+            background: #1B365D;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 40px;
+            gap: 16px;
+        }
+
+        .footer-bar img {
+            height: 40px;
+            width: auto;
+        }
+
+        .footer-bar span {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 10.5px;
+        }
+
+        .footer-bar strong {
+            color: #F0C940;
+        }
+
+        /* Print */
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            .header, .header::before, .footer-bar, .footer-rainbow,
+            .date-banner, .diversity-section, .mascot-message,
+            .event-label, .bg-shape, .club-bar, .diversity-colors span {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-shape bg-shape-1"></div>
+    <div class="bg-shape bg-shape-2"></div>
+    <div class="bg-shape bg-shape-3"></div>
+    <div class="bg-shape bg-shape-4"></div>
+
+    <div class="header">
+        <div class="event-label">Special Event</div>
+        <h1><span class="multi">Multicultural</span> Day</h1>
+        <div class="subtitle">MJC Child Development Club</div>
+    </div>
+
+    <div class="date-banner">
+        <div class="date-main">March 13, 2026</div>
+        <div class="date-details">Come visit us at the MJC Multicultural Day celebration!</div>
+    </div>
+
+    <div class="content">
+        <div class="find-us">
+            <h2>Come Find Us!</h2>
+            <p>The MJC Child Development Club will be at Multicultural Day! Stop by our table to learn about the club, meet our members, and talk about what it means to bring cultural awareness into early childhood education.</p>
+        </div>
+
+        <div class="mascot-row">
+            <img src="../assets/images/MalePirateMJCFinal.png" alt="MJC Pirate Mascot">
+            <div class="mascot-message">
+                <h3>What to Expect</h3>
+                <p>Chat with club members, pick up info about ECE &amp; Child Development programs, and discover how you can get involved. All students welcome &mdash; no matter your major!</p>
+            </div>
+        </div>
+
+        <div class="diversity-section">
+            <h3>Diversity in the Classroom Matters</h3>
+            <p>Children learn best when they see themselves reflected in their environment. As future educators, embracing cultural diversity isn't just important &mdash; it's essential. When classrooms celebrate every background, language, and tradition, we create spaces where all children feel valued, seen, and ready to learn.</p>
+            <div class="diversity-colors">
+                <span class="dc-1"></span>
+                <span class="dc-2"></span>
+                <span class="dc-3"></span>
+                <span class="dc-4"></span>
+                <span class="dc-5"></span>
+                <span class="dc-6"></span>
+            </div>
+        </div>
+
+        <div class="club-bar">
+            <p>Want to learn more? Join us at our regular meetings!<br>
+            <strong>1st &amp; 3rd Fridays at 12 PM &bull; John Muir Hall 160 &bull; West Campus</strong></p>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-rainbow"></div>
+        <div class="footer-bar">
+            <img src="../assets/images/MalePirateMJCFinal.png" alt="MJC Pirate">
+            <span><strong>MJC Child Development Club</strong> &bull; Modesto Junior College</span>
+            <img src="../assets/images/FemalePirateMJC.png" alt="MJC Pirate">
+        </div>
+    </footer>
+</body>
+</html>
