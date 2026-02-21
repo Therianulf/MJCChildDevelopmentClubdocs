@@ -131,6 +131,27 @@
             line-height: 1.45;
         }
 
+        /* QR code */
+        .qr-code {
+            flex-shrink: 0;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3px;
+        }
+
+        .qr-code img {
+            width: 70px;
+            height: 70px;
+        }
+
+        .qr-code span {
+            font-size: 9px;
+            color: #999;
+            font-weight: 600;
+        }
+
         /* Arrow */
         .arrow {
             display: flex;
@@ -207,7 +228,7 @@
             display: flex;
             align-items: flex-end;
             justify-content: space-between;
-            padding: 16px 30px 20px;
+            padding: 16px 30px 10px;
             border-top: 3px solid #85C1E9;
         }
 
@@ -294,6 +315,10 @@
                 <div class="step-text">
                     <h3>🗓️ Meet With Your Counselor</h3>
                     <p>Schedule an appointment with an MJC counselor to build your personalized education plan and map out your courses.</p>
+                </div>
+                <div class="qr-code">
+                    <img src="../assets/qr/counselor/MjcIndex_print.png" alt="Scan to find your counselor">
+                    <span>Scan to schedule!</span>
                 </div>
             </div>
         </div>
