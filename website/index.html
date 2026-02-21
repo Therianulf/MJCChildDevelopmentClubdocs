@@ -12,33 +12,37 @@
         }
 
         :root {
-            --navy: #1B365D;
-            --navy-light: #2A4F7F;
-            --gold: #F0C940;
-            --gold-light: #FFF8E1;
-            --gray-50: #F8FAFC;
-            --gray-100: #F1F5F9;
-            --gray-200: #E2E8F0;
-            --gray-500: #64748B;
-            --gray-700: #334155;
-            --gray-900: #0F172A;
+            --coral: #F4845F;
+            --coral-light: #FFF5F2;
+            --green: #7EC8A0;
+            --green-light: #F0FFF5;
+            --blue: #5DADE2;
+            --blue-light: #F0F9FF;
+            --yellow: #F7C948;
+            --yellow-light: #FFFEF5;
+            --purple: #B07CC6;
+            --text: #333;
+            --text-light: #666;
+            --text-muted: #999;
+            --border: #eee;
+            --bg-subtle: #FAFAFA;
         }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: var(--gray-700);
+            color: var(--text);
             line-height: 1.6;
             background: #ffffff;
         }
 
-        /* ===== NAVIGATION ===== */
+        /* ===== NAV ===== */
         nav {
-            background: var(--navy);
+            background: #fff;
             padding: 0 24px;
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+            border-bottom: 2px solid var(--border);
         }
 
         .nav-inner {
@@ -55,7 +59,7 @@
             align-items: center;
             gap: 12px;
             text-decoration: none;
-            color: white;
+            color: var(--text);
         }
 
         .nav-brand img {
@@ -66,118 +70,85 @@
         .nav-brand span {
             font-weight: 700;
             font-size: 16px;
-            color: white;
         }
 
-        .nav-brand .brand-highlight {
-            color: var(--gold);
+        .nav-brand .pop {
+            color: var(--coral);
         }
 
         .nav-links {
             display: flex;
-            gap: 8px;
+            gap: 4px;
             list-style: none;
         }
 
         .nav-links a {
-            color: rgba(255,255,255,0.85);
+            color: var(--text-light);
             text-decoration: none;
             font-size: 14px;
             font-weight: 500;
             padding: 8px 14px;
-            border-radius: 6px;
+            border-radius: 8px;
             transition: all 0.2s;
         }
 
         .nav-links a:hover {
-            background: rgba(255,255,255,0.1);
-            color: white;
+            background: var(--coral-light);
+            color: var(--coral);
         }
 
         .mobile-toggle {
             display: none;
             background: none;
             border: none;
-            color: white;
+            color: var(--text);
             font-size: 24px;
             cursor: pointer;
-            padding: 4px;
         }
 
         /* ===== HERO ===== */
         .hero {
-            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 50%, var(--navy) 100%);
-            color: white;
             text-align: center;
-            padding: 60px 24px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -100px;
-            right: -100px;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(240,201,64,0.08), transparent 60%);
-            border-radius: 50%;
-        }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            bottom: -80px;
-            left: -80px;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(255,255,255,0.04), transparent 60%);
-            border-radius: 50%;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            max-width: 700px;
-            margin: 0 auto;
+            padding: 60px 24px 50px;
+            border-bottom: 2px solid var(--border);
         }
 
         .hero-mascots {
             display: flex;
             align-items: flex-end;
             justify-content: center;
-            gap: 24px;
+            gap: 30px;
             margin-bottom: 24px;
         }
 
         .hero-mascots img {
-            height: 120px;
+            height: 130px;
             width: auto;
         }
 
         .hero h1 {
-            font-size: 42px;
+            font-size: 44px;
             font-weight: 800;
             line-height: 1.15;
             margin-bottom: 12px;
+            color: var(--text);
         }
 
-        .hero h1 .gold {
-            color: var(--gold);
+        .hero h1 .pop {
+            color: var(--coral);
         }
 
         .hero .tagline {
             font-size: 18px;
-            opacity: 0.9;
+            color: var(--text-light);
             font-weight: 300;
             margin-bottom: 28px;
         }
 
         .hero-cta {
             display: inline-block;
-            background: var(--gold);
-            color: var(--navy);
+            background: var(--coral);
+            color: white;
             font-weight: 700;
             font-size: 16px;
             padding: 12px 32px;
@@ -188,7 +159,7 @@
 
         .hero-cta:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(240,201,64,0.4);
+            box-shadow: 0 6px 20px rgba(244, 132, 95, 0.3);
         }
 
         /* ===== SECTIONS ===== */
@@ -209,29 +180,30 @@
         .section-header h2 {
             font-size: 32px;
             font-weight: 800;
-            color: var(--navy);
+            color: var(--text);
             margin-bottom: 8px;
         }
 
         .section-header p {
             font-size: 16px;
-            color: var(--gray-500);
+            color: var(--text-muted);
             max-width: 550px;
             margin: 0 auto;
         }
 
-        .section-header .accent-line {
+        .accent-line {
             width: 60px;
             height: 4px;
-            background: var(--gold);
             border-radius: 2px;
             margin: 12px auto 0;
         }
 
         /* ===== ABOUT ===== */
         #about {
-            background: var(--gray-50);
+            background: var(--bg-subtle);
         }
+
+        #about .accent-line { background: var(--coral); }
 
         .about-grid {
             display: grid;
@@ -244,18 +216,17 @@
             border-radius: 14px;
             padding: 28px 24px;
             text-align: center;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-            border-top: 4px solid var(--navy);
-            transition: transform 0.2s;
+            border: 2px solid var(--border);
+            transition: transform 0.2s, border-color 0.2s;
         }
 
         .about-card:hover {
             transform: translateY(-4px);
+            border-color: var(--coral);
         }
 
-        .about-card:nth-child(2) {
-            border-top-color: var(--gold);
-        }
+        .about-card:nth-child(2):hover { border-color: var(--green); }
+        .about-card:nth-child(3):hover { border-color: var(--blue); }
 
         .about-card .card-icon {
             font-size: 36px;
@@ -264,21 +235,22 @@
 
         .about-card h3 {
             font-size: 18px;
-            color: var(--navy);
+            color: var(--text);
             margin-bottom: 8px;
             font-weight: 700;
         }
 
         .about-card p {
             font-size: 14px;
-            color: var(--gray-500);
-            line-height: 1.6;
+            color: var(--text-light);
         }
 
         /* ===== MEETINGS ===== */
         #meetings {
             background: white;
         }
+
+        #meetings .accent-line { background: var(--green); }
 
         .meeting-content {
             display: grid;
@@ -288,16 +260,16 @@
         }
 
         .meeting-info {
-            background: linear-gradient(135deg, var(--navy), var(--navy-light));
+            border: 2px solid var(--coral);
             border-radius: 16px;
-            padding: 36px;
-            color: white;
+            padding: 32px;
+            background: white;
         }
 
         .meeting-info h3 {
             font-size: 22px;
             font-weight: 800;
-            color: var(--gold);
+            color: var(--coral);
             margin-bottom: 20px;
         }
 
@@ -305,18 +277,19 @@
             display: flex;
             align-items: center;
             gap: 14px;
-            margin-bottom: 16px;
+            margin-bottom: 14px;
             font-size: 16px;
+            color: var(--text-light);
         }
 
         .meeting-row .m-icon {
-            font-size: 22px;
+            font-size: 20px;
             width: 28px;
             text-align: center;
         }
 
         .meeting-row strong {
-            color: var(--gold);
+            color: var(--text);
             min-width: 80px;
         }
 
@@ -327,55 +300,53 @@
         }
 
         .date-item {
-            background: var(--gray-50);
+            background: white;
             border-radius: 10px;
             padding: 14px 18px;
             text-align: center;
-            border: 1.5px solid var(--gray-200);
+            border: 2px solid var(--border);
             transition: border-color 0.2s;
         }
 
         .date-item:hover {
-            border-color: var(--gold);
+            border-color: var(--coral);
         }
 
         .date-item.upcoming {
-            background: var(--gold-light);
-            border-color: var(--gold);
+            border-color: var(--coral);
+            background: var(--coral-light);
         }
 
         .date-item .date-month {
             font-size: 12px;
             text-transform: uppercase;
             letter-spacing: 1px;
-            color: var(--gray-500);
+            color: var(--text-muted);
             font-weight: 600;
         }
 
         .date-item .date-day {
             font-size: 28px;
             font-weight: 800;
-            color: var(--navy);
+            color: var(--text);
             line-height: 1.2;
         }
 
         .date-item .date-weekday {
             font-size: 12px;
-            color: var(--gray-500);
-        }
-
-        .date-item.upcoming .date-month {
-            color: #8B6914;
+            color: var(--text-muted);
         }
 
         .date-item.upcoming .date-day {
-            color: #8B6914;
+            color: var(--coral);
         }
 
-        /* ===== NEWS / ACTIVITIES ===== */
+        /* ===== NEWS ===== */
         #news {
-            background: var(--gray-50);
+            background: var(--bg-subtle);
         }
+
+        #news .accent-line { background: var(--blue); }
 
         .news-grid {
             display: grid;
@@ -387,22 +358,18 @@
             background: white;
             border-radius: 14px;
             overflow: hidden;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-            transition: transform 0.2s;
+            border: 2px solid var(--border);
+            transition: transform 0.2s, border-color 0.2s;
         }
 
         .news-card:hover {
             transform: translateY(-4px);
         }
 
-        .news-card-banner {
-            height: 10px;
-        }
-
-        .news-card:nth-child(1) .news-card-banner { background: var(--navy); }
-        .news-card:nth-child(2) .news-card-banner { background: var(--gold); }
-        .news-card:nth-child(3) .news-card-banner { background: #4CAF50; }
-        .news-card:nth-child(4) .news-card-banner { background: #9C27B0; }
+        .news-card:nth-child(1):hover { border-color: var(--coral); }
+        .news-card:nth-child(2):hover { border-color: var(--yellow); }
+        .news-card:nth-child(3):hover { border-color: var(--green); }
+        .news-card:nth-child(4):hover { border-color: var(--purple); }
 
         .news-card-body {
             padding: 22px 24px;
@@ -410,7 +377,7 @@
 
         .news-card .news-date {
             font-size: 12px;
-            color: var(--gray-500);
+            color: var(--text-muted);
             text-transform: uppercase;
             letter-spacing: 0.5px;
             margin-bottom: 6px;
@@ -418,15 +385,14 @@
 
         .news-card h3 {
             font-size: 17px;
-            color: var(--navy);
+            color: var(--text);
             margin-bottom: 8px;
             font-weight: 700;
         }
 
         .news-card p {
             font-size: 13.5px;
-            color: var(--gray-500);
-            line-height: 1.6;
+            color: var(--text-light);
         }
 
         .news-tag {
@@ -440,25 +406,16 @@
             margin-top: 10px;
         }
 
-        .tag-event {
-            background: #E8F5E9;
-            color: #2E7D32;
-        }
-
-        .tag-meeting {
-            background: #E3F2FD;
-            color: #1565C0;
-        }
-
-        .tag-announcement {
-            background: #FFF3E0;
-            color: #E65100;
-        }
+        .tag-event { background: #FFF5F2; color: var(--coral); }
+        .tag-meeting { background: var(--blue-light); color: var(--blue); }
+        .tag-announcement { background: var(--yellow-light); color: #C9A020; }
 
         /* ===== GALLERY ===== */
         #gallery {
             background: white;
         }
+
+        #gallery .accent-line { background: var(--purple); }
 
         .gallery-grid {
             display: grid;
@@ -467,23 +424,22 @@
         }
 
         .gallery-item {
-            background: var(--gray-100);
+            background: var(--bg-subtle);
             border-radius: 12px;
             aspect-ratio: 4/3;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            border: 2px dashed var(--gray-200);
-            color: var(--gray-500);
-            font-size: 13px;
+            border: 2px dashed var(--border);
+            color: var(--text-muted);
             text-align: center;
             padding: 16px;
             transition: border-color 0.2s;
         }
 
         .gallery-item:hover {
-            border-color: var(--gold);
+            border-color: var(--coral);
         }
 
         .gallery-item .gallery-icon {
@@ -494,15 +450,15 @@
 
         .gallery-item p {
             font-size: 12px;
-            color: var(--gray-500);
         }
 
         /* ===== JOIN CTA ===== */
         .join-cta {
-            background: linear-gradient(135deg, var(--navy), var(--navy-light));
-            color: white;
+            background: var(--bg-subtle);
             text-align: center;
             padding: 60px 24px;
+            border-top: 2px solid var(--border);
+            border-bottom: 2px solid var(--border);
         }
 
         .join-cta h2 {
@@ -511,13 +467,13 @@
             margin-bottom: 12px;
         }
 
-        .join-cta h2 .gold {
-            color: var(--gold);
+        .join-cta h2 .pop {
+            color: var(--coral);
         }
 
         .join-cta p {
             font-size: 16px;
-            opacity: 0.9;
+            color: var(--text-light);
             margin-bottom: 24px;
             max-width: 500px;
             margin-left: auto;
@@ -526,8 +482,8 @@
 
         .join-cta .cta-button {
             display: inline-block;
-            background: var(--gold);
-            color: var(--navy);
+            background: var(--coral);
+            color: white;
             font-weight: 700;
             font-size: 16px;
             padding: 14px 36px;
@@ -538,20 +494,20 @@
 
         .join-cta .cta-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(240,201,64,0.4);
+            box-shadow: 0 6px 20px rgba(244, 132, 95, 0.3);
         }
 
         .join-details {
             margin-top: 20px;
             font-size: 14px;
-            opacity: 0.8;
+            color: var(--text-muted);
         }
 
         /* ===== FOOTER ===== */
         footer {
-            background: var(--gray-900);
-            color: rgba(255,255,255,0.7);
+            background: white;
             padding: 32px 24px;
+            border-top: 2px solid var(--border);
         }
 
         .footer-inner {
@@ -576,16 +532,17 @@
         .footer-brand-text {
             font-size: 13px;
             line-height: 1.6;
+            color: var(--text-light);
         }
 
         .footer-brand-text strong {
-            color: var(--gold);
-            font-size: 14px;
+            color: var(--text);
         }
 
         .footer-right {
             text-align: right;
             font-size: 12px;
+            color: var(--text-muted);
             line-height: 1.6;
         }
 
@@ -601,19 +558,16 @@
                 top: 60px;
                 left: 0;
                 right: 0;
-                background: var(--navy);
+                background: white;
                 flex-direction: column;
                 padding: 12px 24px 20px;
                 gap: 4px;
-                border-top: 1px solid rgba(255,255,255,0.1);
+                border-bottom: 2px solid var(--border);
+                box-shadow: 0 8px 20px rgba(0,0,0,0.08);
             }
 
             .nav-links.open {
                 display: flex;
-            }
-
-            .nav-links a {
-                padding: 10px 14px;
             }
 
             .hero h1 {
@@ -675,12 +629,12 @@
     </style>
 </head>
 <body>
-    <!-- Navigation -->
+    <!-- Nav -->
     <nav>
         <div class="nav-inner">
             <a href="#" class="nav-brand">
-                <img src="../assets/images/MalePirateMJCFinal.png" alt="MJC Pirate">
-                <span><span class="brand-highlight">MJC</span> Child Dev Club</span>
+                <img src="../assets/images/FemalePirateMJC.png" alt="MJC Pirate">
+                <span><span class="pop">MJC</span> Child Dev Club</span>
             </a>
             <button class="mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle menu">&#9776;</button>
             <ul class="nav-links">
@@ -694,15 +648,13 @@
 
     <!-- Hero -->
     <section class="hero">
-        <div class="hero-content">
-            <div class="hero-mascots">
-                <img src="../assets/images/MalePirateMJCFinal.png" alt="MJC Pirate Mascot">
-                <img src="../assets/images/FemalePirateMJC.png" alt="MJC Pirate Mascot">
-            </div>
-            <h1>MJC <span class="gold">Child Development</span> Club</h1>
-            <p class="tagline">Building the future of early childhood education &mdash; together.</p>
-            <a href="#meetings" class="hero-cta">Join Us This Friday!</a>
+        <div class="hero-mascots">
+            <img src="../assets/images/MalePirateMJC.png" alt="MJC Pirate Mascot">
+            <img src="../assets/images/FemalePirateMJC.png" alt="MJC Pirate Mascot">
         </div>
+        <h1>MJC <span class="pop">Child Development</span> Club</h1>
+        <p class="tagline">Building the future of early childhood education &mdash; together.</p>
+        <a href="#meetings" class="hero-cta">Join Us This Friday!</a>
     </section>
 
     <!-- About -->
@@ -766,7 +718,7 @@
                     </div>
                 </div>
                 <div>
-                    <h3 style="font-size: 18px; color: var(--navy); font-weight: 700; margin-bottom: 16px; text-align: center;">Spring 2026 Dates</h3>
+                    <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 16px; text-align: center;">Spring 2026 Dates</h3>
                     <div class="dates-list">
                         <div class="date-item">
                             <div class="date-month">February</div>
@@ -804,7 +756,7 @@
         </div>
     </section>
 
-    <!-- News / Recent Activities -->
+    <!-- News -->
     <section id="news">
         <div class="container">
             <div class="section-header">
@@ -814,7 +766,6 @@
             </div>
             <div class="news-grid">
                 <div class="news-card">
-                    <div class="news-card-banner"></div>
                     <div class="news-card-body">
                         <div class="news-date">March 13, 2026</div>
                         <h3>Multicultural Day</h3>
@@ -823,7 +774,6 @@
                     </div>
                 </div>
                 <div class="news-card">
-                    <div class="news-card-banner"></div>
                     <div class="news-card-body">
                         <div class="news-date">Spring 2026</div>
                         <h3>New Semester, Fresh Start!</h3>
@@ -832,7 +782,6 @@
                     </div>
                 </div>
                 <div class="news-card">
-                    <div class="news-card-banner"></div>
                     <div class="news-card-body">
                         <div class="news-date">Ongoing</div>
                         <h3>ECE &amp; CD Program Info</h3>
@@ -841,7 +790,6 @@
                     </div>
                 </div>
                 <div class="news-card">
-                    <div class="news-card-banner"></div>
                     <div class="news-card-body">
                         <div class="news-date">Every Meeting</div>
                         <h3>Open Discussion &amp; Networking</h3>
@@ -892,7 +840,7 @@
 
     <!-- Join CTA -->
     <section class="join-cta">
-        <h2>Ready to <span class="gold">Join Us</span>?</h2>
+        <h2>Ready to <span class="pop">Join Us</span>?</h2>
         <p>No applications, no fees &mdash; just show up to our next meeting! Everyone is welcome, no matter your major.</p>
         <a href="#meetings" class="cta-button">See Meeting Times</a>
         <div class="join-details">
@@ -904,7 +852,7 @@
     <footer>
         <div class="footer-inner">
             <div class="footer-brand">
-                <img src="../assets/images/combined footer.png" alt="MJC Pirate Mascots">
+                <img src="../assets/images/MalePirateMJC.png" alt="MJC Pirate Mascot">
                 <div class="footer-brand-text">
                     <strong>MJC Child Development Club</strong><br>
                     Modesto Junior College<br>
@@ -912,6 +860,7 @@
                 </div>
             </div>
             <div class="footer-right">
+                <img src="../assets/images/FemalePirateMJC.png" alt="MJC Pirate Mascot" style="height: 50px; width: auto; margin-bottom: 8px; display: block; margin-left: auto;">
                 John Muir Hall 160<br>
                 West Campus, MJC<br>
                 &copy; 2026 MJC Child Development Club
