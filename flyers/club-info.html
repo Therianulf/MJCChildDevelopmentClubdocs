@@ -126,28 +126,7 @@
             line-height: 1.3;
         }
 
-        /* Meeting box */
-        .meeting-box {
-            border: 2px solid #85C1E9;
-            border-radius: 14px;
-            padding: 20px 26px;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 24px;
-        }
-
-        .meeting-details {
-            flex: 1;
-        }
-
-        .meeting-details h2 {
-            font-size: 20px;
-            font-weight: 800;
-            color: #85C1E9;
-            margin-bottom: 10px;
-        }
-
+        /* Meeting details (inside info-card) */
         .meeting-row {
             display: flex;
             align-items: center;
@@ -169,18 +148,6 @@
         }
 
         /* Dates */
-        .dates-section {
-            text-align: center;
-            margin-bottom: 18px;
-        }
-
-        .dates-section h3 {
-            font-size: 15px;
-            color: #333;
-            margin-bottom: 10px;
-            font-weight: 700;
-        }
-
         .dates-grid {
             display: flex;
             justify-content: center;
@@ -205,32 +172,14 @@
         }
 
         /* Join CTA */
-        .join-section {
-            text-align: center;
-            border: 2px dashed #85C1E9;
-            border-radius: 14px;
-            padding: 16px 24px;
+        .join-card {
             background: #F0F7FC;
+            text-align: center;
+            margin-top: 20px;
         }
 
-        .join-section h3 {
-            font-size: 18px;
-            color: #333;
-            margin-bottom: 4px;
-            font-weight: 800;
-        }
-
-        .join-section p {
-            font-size: 13px;
-            color: #666;
-            line-height: 1.5;
-        }
-
-        .join-section .cta-bold {
-            font-size: 15px;
-            color: #5DADE2;
-            font-weight: 700;
-            margin-top: 2px;
+        .join-card h3 {
+            justify-content: center;
         }
 
         /* Footer */
@@ -290,30 +239,30 @@
             </h1>
             <img src="../assets/images/FemalePirateMJC.png" alt="MJC Pirate">
         </div>
-        <div class="tagline">Building the future of early childhood education &mdash; together!</div>
+        <div class="tagline">Do you want to understand, inspire, and advocate for children? Your journey to making an impact starts here.</div>
     </div>
 
     <div class="content">
         <div class="info-grid">
             <div class="info-card">
-                <h3><span class="icon">👋</span> Who We Are</h3>
-                <p>We're a community of ECE and Child Development students at Modesto Junior College. Whether you're just exploring the field or deep into your coursework, this is your crew.</p>
+                <h3><span class="icon">🌍</span> Who We Are</h3>
+                <p>We're a group of MJC students passionate about Child Development. Whether you're preparing for a career in the field or just want to explore the topic with a supportive community of peers, you are welcome here.</p>
             </div>
             <div class="info-card">
-                <h3><span class="icon">💡</span> What We Do</h3>
+                <h3><span class="icon">🌸</span> What We Do</h3>
                 <ul>
-                    <li>Discuss hot topics in child development</li>
-                    <li>Network with fellow students</li>
-                    <li>Host guest speakers &amp; workshops</li>
-                    <li>Attend community events together</li>
-                    <li>Build your professional skills</li>
+                    <li>Dive into new Child Development topics in a relaxed setting.</li>
+                    <li>Network and build lasting friendships with fellow MJC students.</li>
+                    <li>Attend MJC community events together.</li>
+                    <li>Develop professional skills and prepare for your future career.</li>
+                    <li>Host guest speakers and hands-on workshops led by specialists.</li>
                 </ul>
             </div>
         </div>
 
-        <div class="meeting-box">
-            <div class="meeting-details">
-                <h2>When &amp; Where</h2>
+        <div class="info-grid">
+            <div class="info-card">
+                <h3><span class="icon">🏫</span> When &amp; Where</h3>
                 <div class="meeting-row">
                     <span class="m-icon">📅</span>
                     <strong>When:</strong>
@@ -325,24 +274,22 @@
                     <span>John Muir Hall 160, West Campus</span>
                 </div>
             </div>
-        </div>
-
-        <div class="dates-section">
-            <h3>Spring 2026 Meeting Dates</h3>
-            <div class="dates-grid">
-                <span class="date-chip">Feb 6</span>
-                <span class="date-chip">Feb 20</span>
-                <span class="date-chip next">Mar 6</span>
-                <span class="date-chip next">Mar 20</span>
-                <span class="date-chip">Apr 3</span>
-                <span class="date-chip">Apr 17</span>
+            <div class="info-card">
+                <h3><span class="icon">📅</span> Spring 2026 Meeting Dates</h3>
+                <div class="dates-grid">
+                    <span class="date-chip">Feb 6</span>
+                    <span class="date-chip">Feb 20</span>
+                    <span class="date-chip next">Mar 6</span>
+                    <span class="date-chip next">Mar 20</span>
+                    <span class="date-chip">Apr 3</span>
+                    <span class="date-chip">Apr 17</span>
+                </div>
             </div>
         </div>
 
-        <div class="join-section">
-            <h3>How Do I Join?</h3>
-            <p>No applications, no fees, no hoops to jump through.</p>
-            <p class="cta-bold">Just show up to our next meeting &mdash; everyone is welcome!</p>
+        <div class="info-card join-card">
+            <h3><span class="icon">🤝</span> How Do I Join?</h3>
+            <p>No applications. No fees. No extra work. Show up to our next meeting, everyone is welcome!</p>
         </div>
     </div>
 
