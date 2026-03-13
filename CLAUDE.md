@@ -76,6 +76,9 @@ website/
 - **Spring 2026 dates**: Feb 6, Feb 20, Mar 6, Mar 20, Apr 3, Apr 17
 - **Affiliations**: Office of Student Services, Associated Students
 
+## Tool Preferences
+- **Use LSP for all code searches** — prefer the LSP tool (documentSymbol, workspaceSymbol, findReferences, etc.) over Grep/Glob when searching for symbols, definitions, or references in the codebase.
+
 ## Workflow
 1. Edit HTML files directly
 2. Open in browser to preview
